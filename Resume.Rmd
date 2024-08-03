@@ -1,0 +1,144 @@
+---
+surname: Daniel Franzani Cerda
+address: "" # Subhead under name 
+phone: +56 9 6244 8359
+#www: dfranzani.github.io/website
+email: "dfranzani@gmail.com"
+github: dfranzani
+linkedin: dfranzani
+date: "`r format(Sys.time(), '%B %Y')`"
+output: vitae::awesomecv
+docname: "Resumen"
+headcolor: 414141 #08004f
+---
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tibble)
+source("make_detailed_section.R")
+source("make_detail_teaching_experiencie.R")
+```
+
+# Experiencia Profesional
+
+```{r, results='asis'}
+## To reflect promotions, simply change the "with" and "where" arguments to "" -
+## that'll keep everything grouped under the same header
+
+UDP <- vector("list")
+UDP$Details <- c("Universidad Diego Portales", "Agosto 2022 - Presente", "Coordinador de línea Estadística", "")
+UDP$Bullets <- c(
+  "La coordinación de línea busca monitorear y evaluar la docencia en los cursos de estadística de la Facultad de administración economía.",
+  "Automatizar y estandarizar el material docente de los cursos de estadística.",
+  "Desarrollar y mantener la infraestructura de evaluación de los cursos de estadística.",
+  "Asesorar a los docentes en la implementación de nuevas metodologías de enseñanza."
+)
+
+UTEM <- vector("list")
+UTEM$Details <- c("Universidad Tecnológina Metropolitana", "Novimebre 2020 - Noviembre 2022", "Profesional Estadístico", "")
+UTEM$Bullets <- c(
+ "Profesional estadístico del Departamento de Seguimiento a la Progresión de los Estudiantes.",
+ "Desarrollar modelos predictivos y descriptivos para la identificación de factores de riesgo académico.",
+ "Comunicar y presentar resultados a los distintos estamentos de la universidad.",
+ "Automatización de procesos y tareas para la consolidación de bases de datos, la generación de reportes y paneles de visualización.",
+ "Diseño e implementación de flujos de tranajo para la gestión de la información."
+)
+
+tecpar <- vector("list")
+tecpar$Details <- c("TecPar", "Agosto 2019 - Presente", "Científico de Datos","")
+tecpar$Bullets <- c(
+ "Desarrolo de modelos supervisados y no supervisados para el análisis de datos y la generación de reportes automatizados para distintos proyectos de investigación.",
+ "Monitoreo y ajuste de modelos de Machine Learning y Deep Learning para la predicción y detección de patrones de distintos fenómenos (agrícola, consumo de recursos, patrones geográficos, indicadores macroeconómicos)."
+)
+
+sgs <- vector("list")
+sgs$Details <- c("SGS", "Octubre 2021 - Diciembre 2022", "Profesional Estadístico", "")
+sgs$Bullets <- c(
+  "Responsable experto para el proyecto de Economía Circular - LATAM Airlines en cuestiones técnicas.",
+  "Consolidación de bases de datos asociadas, elaboración de indicadores operacionales, elaboración de paneles de visualización."
+)
+
+# santander <- vector("list")
+# santander$Details <- c("Banco Santander", "Enero 2019 - Febrero 2019", "Auditoría Interna","")
+# santander$Bullets <- c(
+#   "Monitoreo de modelos de \\textit{scoring}, \\textit{rating}, parámetros de capital y provisiones.",
+#   "Elaboración de indicadores de desempeño y discriminación de modelos de \\textit{scoring}, \\textit{rating}, parámetros de capital y provisiones."
+# )
+
+otros <- vector("list")
+otros$Details <- c("Docencia", "", "Docente de Estadística y Matemática", "")
+otros$Bullets <- c(
+  "Cursos de Estadística y Matemática en la Universidad Diego Portales (2022-presente).",
+  "Asesor de Métodos Cuantitativos para el curso de Seminario de grado del Magíster en Dirección de Marketing en la Universidad Diego Portales (2022).",
+  "Cursos de Estadística y Matemática en la Universidad Católica Silva Henríquez (2019-2021)."
+)
+
+
+make_detailed_section(
+  UDP,
+  UTEM,
+  tecpar,
+  sgs,
+  otros
+)
+```
+
+# Habilidades e intereses
+
+```{r, habilidades, results='asis'}
+habilidades <- vector("list")
+habilidades$Details <- c("", "", "", "")
+habilidades$Bullets <- c(
+  "\\textbf{Habilidades}: Pensamiento crítico, comunicación efectiva, enseñanza-aprendizaje, visualización de datos, gestión de bases de datos, estadística/probabilidad.",
+  "\\textbf{Herramientas}: R, Python, SQL, Git, Markdown, LaTeX, Power BI/Tableau.",
+  "\\textbf{Intereses}: Ajedrez, tenis de mesa, lectura (crónicas), perfumería."
+)
+cat("\\vspace{-0.7cm}")
+make_detailed_section(
+ habilidades
+)
+```
+
+# Educación
+
+```{r, education, results='asis'}
+
+MG_IA = list(
+ "Details" = c(
+ "Magíster en Inteligencia Artificial",
+ "Diciembre 2022",
+ "Universidad Adolfo Ibáñez",
+ "Santiago, Chile"
+ ),
+ "Bullets" = "Octavo lugar de promoción (de 48). Proyecto de título en \\href{https://drive.google.com/file/d/1BKxviVojPZrCPJyTfVj79-U02q6vFHQM/view}{diseño de modelo para la detección de portonazos}."
+)
+
+MG_ES = list(
+ "Details" = c(
+ "Magíster en Estadística",
+ "Diciembre 2019",
+ "Pontificia Universidad Católica de Chile",
+ "Santiago, Chile"
+ ),
+ "Bullets" = "Cuarto lugar de promoción (de 16). Proyecto de título en análisis de variables que influyen en SPX Index utilizando GLM."
+)
+
+LC_ED = list(
+ "Details" = c(
+ "Licenciatura en Educación/Pedagogía en Matemática",
+ "Julio 2017",
+ "Universidad Católica Silva Henríquez",
+ "Santiago, Chile"
+ ),
+ "Bullets" = "Primer lugar de promoción (de 9). Proyecto de título en \\href{https://catalogo.ucsh.cl/cgi-bin/koha/opac-detail.pl?biblionumber=52416}{análisis de las actitudes de estudiantes hacia la Estadística.}"
+)
+
+make_detailed_section(MG_IA, order = 1:4)
+cat("\\vspace{-0.5cm}")
+make_detailed_section(MG_ES, order = 1:4)
+cat("\\vspace{-0.5cm}")
+make_detailed_section(LC_ED, order = 1:4)
+```
+
+

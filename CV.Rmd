@@ -1,0 +1,267 @@
+---
+surname: Daniel Franzani Cerda
+address: "" # Subhead under name 
+phone: +56 9 6244 8359
+#www: dfranzani.github.io/website
+email: "dfranzani@gmail.com"
+github: dfranzani
+linkedin: dfranzani
+date: "`r format(Sys.time(), '%B %Y')`"
+output: vitae::awesomecv
+docname: "Curriculum Vitae"
+headcolor: 414141 #08004f
+---
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tibble)
+source("make_detailed_section.R")
+source("make_detail_teaching_experiencie.R")
+```
+
+# Experiencia Profesional
+
+```{r, results='asis'}
+## To reflect promotions, simply change the "with" and "where" arguments to "" -
+## that'll keep everything grouped under the same header
+
+UDP <- vector("list")
+UDP$Details <- c("Coordinador de línea Estadística", "Agosto 2022 - Presente", "Universidad Diego Portales", "")
+UDP$Bullets <- c(
+  "Académico Jornada Parcial, Departamento de Matemáticas y Estadística, Facultad de Administración y Economía.",
+  "Elaboración de los programas de los cursos de estadística de la Facultad de Administración y Economía.",
+  "Responsable del diseño, implementación y lanzamiento del material de eseñanza a través de páginas web estáticas desarrolladas mediante \\textit{Bookdown} y  \\textit{Quarto}, incorporando el uso de Google Colab R.",
+  "Responsable del seguimiento de la enseñanza de los contenidos impartidos por los distintos docentes en los cursos de estadística de la Facultad de Administración y Economía."
+)
+
+UTEM <- vector("list")
+UTEM$Details <- c("Profesional Estadístico", "Novimebre 2020 - Noviembre 2022", "Universidad Tecnológina Metropolitana", "")
+UTEM$Bullets <- c(
+  "Profesional estadístico del Departamento de Seguimiento a la Progresión de los Estudiantes.",
+  "Liderazgo demostrado como enlace interdepartamental entres distintos equipos de la universidad, para la socialización de los resultados de progresión académica, definición de métricas y disponibilidad de datos.",
+  "Diseño e implementarción de flujos de trabajo ETL para BigQuery para optimizar y mejorar los procesos de ingesta, accesibilidad e integridad de los datos para su posterior análisis.",
+  "Creación y automatización de informes (R Markdown) de datos institucionales, modelos estadísticos (Modelos Lineales Generalizados, Modelos de Supervivencia, KNN, entre otros) y paneles de control de datos personalizados (Power BI), para ayudar a equipos en la toma de decisiones para la retención estudiantil.",
+  "Asesor en el pronóstico y monitoreo de indicadores clave de desempeño a nivel institucional y en la construcción del primer Mecanismo de Alerta Académica Institucional enfocado en la detección de deserción estudiantil en tiempo real (\\textit{LightGBM}), utilizando conjuntos de datos socioeconómicos y demográficos."
+)
+
+tecpar <- vector("list")
+tecpar$Details <- c("Científico de Datos", "Agosto 2019 - Presente", "TecPar", "(Independiente)")
+tecpar$Bullets <- c(
+  "Utilización de scripts bash de R y GNU-Linux para analizar y explorar conjuntos de datos complejos para diversos proyectos de investigación.",
+  "Creación de scripts para la elaboración de piplines ETL escalables mediante Spark y SQL (DuckDB), con el fin de mejorar las capacidades de procesamiento de datos y el despliegue de modelos en ambientes virtuales locales (R, Python).",
+  "Desarrollo de modelos y simulaciones (Modelos Lineales Generalizados) basados en datos de panel para probar efectos semi-cuasi experimentales de indicadores macro económicos.",
+  # "Automatización de procesos y tareas de las distintas áreas a través de ETLs, haciendo uso de APIs, web scraping y SQL (Duck DB)",
+  "Desarrollo de chatbots internos especializados en generar informes automatizados (R Sweave), reduciendo el tiempo de gestión de ejecutivos.",
+  "Ajuste y monitoreo de modelos descriptivos y predictivos de Machine Learning y Deep Learning para distintos proyectos, tales como, el consumo eléctrico en hogares a través del tiempo (SARIMA, LSTM), riesgo de incumplimiento de pagos de servicios privados (Modelos Lineales Generalizados), detección de patrones del índice de vegetación NDVI para los tiempos de cosecha (Redes Neuronales Convolucionales y estimación de kernel), análisis de consumo de bienes de lujo bajo factores religiosos y sociales (Modelo de Ecuaciones Estructurales) y análisis del consumo de agua en hogares (análisis no-paramétrico)."#,
+  # "Diseño de una arquitectura de Deep Learning (Red Neuronal Convolucional) para el análisis de vídeos de vigilancia en tiempo real, enfocado en la detección de delitos de robo de autos, mediante YOLOv5 y Heurísticas de clasificación."
+)
+
+sgs <- vector("list")
+sgs$Details <- c("Profesional Estadístico", "Octubre 2021 - Diciembre 2022", "SGS", "")
+sgs$Bullets <- c(
+  "Responsable experto para el proyecto de Economía Circular - LATAM Airlines en cuestiones técnicas, que abarcan la consolidación de bases de datos asociadas a la generación de residuos de los distintos vuelos, elaboración de indicadores operacionales, elaboración de paneles de visualización en Power BI y la automatización de reportes (R Markdown) para la socialización de resultados."
+)
+
+santander <- vector("list")
+santander$Details <- c("Auditoría Interna", "Enero 2019 - Febrero 2019", "Banco Santander","")
+santander$Bullets <- c(
+  "Monitoreo de modelos de \\textit{scoring}, \\textit{rating}, parámetros de capital y provisiones.",
+  "Elaboración de indicadores de desempeño y discriminación de modelos de \\textit{scoring}, \\textit{rating}, parámetros de capital y provisiones."
+)
+
+make_detailed_section(
+  UDP,
+  UTEM,
+  tecpar,
+  sgs,
+  santander
+)
+```
+
+# Proyectos de desarrollo
+
+```{r, packages}
+tribble(
+  ~ Pkg, ~ When, ~ Role, ~ Details, ~ Status,
+  "Tablyzer", "2023", "Desarrollador", "Librería en R: Infraestructura para evaluar las inconsistencias en el cruce de bases de datos relacionales", "Estado: privada, en desarrollo",
+  "\\href{https://github.com/Dfranzani/Mglm}{Mglm}", "2023", "Desarrollador principal", "Librería en R: Infraestructura para evaluar el desempeño de Modelos Lineales Generalizados","Estado: pública"
+) |>
+  brief_entries(glue::glue("\\textbf{<Pkg>}: <Role> \\newline <Details>. \\textit{<Status>}.", 
+                           .open = "<", 
+                           .close = ">"), 
+                When, 
+                .protect = FALSE)
+```
+
+\newpage{}
+
+# Experiencia Docente
+
+## Pregrado
+
+```{r, results='asis'}
+
+# args ---> ~ When, ~ Cursos, ~ Role, ~ Escuela, ~ With, ~ Where, ~ Why
+
+# list(
+#   "Details" = c("Marzo 2022 - Presente",
+#                 "Universidad Diego Portales"),
+#   "Escuela" = c("Escuela de Ingeniería Comercial", "Escuela de Ingeniería en Control de Gestión", "Escuela de Contador Auditor - Contador Público"),
+#   "Cursos" = c("Estadística I, Estadística II.", "Matemáticas I, Estadística Descriptiva, Inferencia Estadística.", "Matemáticas III, Estadísticas.")
+#  ) |> make_detailed_teaching_undergraduate()
+
+list(
+  "Details" = c("Marzo 2022 - Presente",
+                "Universidad Diego Portales"),
+  "Escuela" = c("Estadística I (ICO09212)/Estadística Descriptiva (ICG3464)/Estadística (AUD8054): tópicos básicos de estadística, gráficos descriptivos, probabilidades, variables aleatorias discretas y continuas (función de densidad de probabilidad, función de distribución acumulada, principales distribuciones), ditribuciones muestrales.",
+                "Estadística II (ICO09221)/Inferencia Estadística (ICG3465): intervalos de confianza, pruebas de hipótesis, regresión lineal simple y múltiple, ANOVA.",
+                "Matemáticas III (AUD8053): derivadas parciales, derivación parcial implícita, optimización de funciones multivariadas, análisis marginal, elasticidad de demanda, matrices, sistema de ecuaciones lineales.")
+ ) |> make_detailed_teaching_undergraduate()
+
+# list(
+#   "Details" = c("Marzo 2022 - Julio 2022",
+#                 "Universidad Diego Portales"),
+#   "Escuela" = c("Escuela de Contador Auditor - Contador Público"),
+#   "Cursos" = c("Matemáticas III.")
+#  ) |> make_detailed_teaching_undergraduate()
+
+# list(
+#   "Details" = c("Agosto 2019 - Diciembre 2021",
+#                 "Universidad Católica Silva Henríquez"),
+#   "Escuela" = c("Escuela de Pedagogía en Matemáticas", "Escuela de Educación Diferencial", "Escuela de Contador Público y Auditor"),
+#   "Cursos" = c("Estadística I, Estadística II.", "Didáctica de las Matemáticas para la Discapacidad.", "Matemáticas II.")
+#  ) |> make_detailed_teaching_undergraduate()
+
+list(
+  "Details" = c("Agosto 2019 - Diciembre 2021",
+                "Universidad Católica Silva Henríquez"),
+  "Escuela" = c("Estadística I (DMPM52): tópicos básicos de estadística, elementos de probabilidad, variables aleatorias discretas (función de densidad conjunta, valores esperados conjuntos marginales y condicionales, función generadora de momentos, modelos simples y bivariados).", 
+                "Estadística II (DMPM63): variables aleatorias continuas (función de densidad conjunta, valores esperados conjuntos marginales y condicionales, transformaciones lineales, función generadora de momentos, modelos simples y bivariados), muestra y distribuciones muestrales, estimación de parámetros, pruebas de hipótesis.",
+                # "Didáctica de las Matemáticas para la Discapacidad: ",
+                "Matemática II (RCA203): tasa de variación de una función, cálculo diferencial en una variable.")
+ ) |> make_detailed_teaching_undergraduate()
+
+# list(
+#   "Details" = c("Septiembre 2017 - Enero 2018",
+#                 "Universidad de Santiago de Chile"),
+#   "Escuela" = c("Programa de Acceso a la Educación Superior (PACE)"),
+#   "Cursos" = c("Matemáticas.")
+#  ) |> make_detailed_teaching_undergraduate()
+
+```
+
+<!-- \newpage{} -->
+
+## Postgrado
+
+```{r}
+list(
+  "Details" = c("Noviembre 2022 - Presente",
+                "Universidad Diego Portales",
+                ""),
+  "Cursos" = c("Asesor de Métodos Cuantitativos para el curso de Seminario de grado del Magíster en Dirección de Marketing. Área: comportamiento del consumidor. Técnicas: Modelo de Ecuaciones Estructurales y Modelos Lineales Generalizados. Las tesis asesoradas son las siguientes:")
+ ) |> make_detailed_teaching_graduate()
+```
+
+```{r, results='asis'}
+cat(
+  "
+  \\vspace{-0.3cm}
+  \\begingroup
+  \\footnotesize
+  \\begin{itemize}
+    \\item[--] (2023-2) Estrategia de Marketing Onmicanalidad: Investigación de empresas en Chile que convergen las técnicas de Marketing tradicionales y digitales.
+    \\item[--] (2023-2) Modelo de la aceptación tecnológica: Una comparación de las intensiones de compra en línea entre las generaciones chilenas de Baby Boomers y Millennials.
+    \\item[--] (2023-2) Autoconcepto y presión de pares: Un análisis de sus efectos en el Materialismo y la Actitud frente al lujo.
+    \\item[--] (2023-1) \\href{https://repositoriobiblioteca.udp.cl/TD002861.pdf#pagemode=thumbs}{Percepción de los televidentes sobre la reputación coporativa de los canales de televisión en Chile.}
+    \\item[--] (2022-2) El impacto del autoconcepto en relación con las actitudes hacia el lujo: El efecto del materialismo y motivaciones sociales para consumir.
+    \\item[--] (2022-2) Factores que afectan a la percepción de las personas mayores en Chile en cuanto al uso de teléfonos inteligentes.
+  \\end{itemize}
+  \\endgroup
+  \\vspace{-0.7cm}
+  "
+)
+```
+
+```{r}
+list(
+  "Details" = c("",
+                "",
+                ""),
+  "Cursos" = c("Tesis asesoradas en otros programas de magíster:")
+ ) |> make_detailed_teaching_graduate()
+```
+
+```{r, results='asis'}
+cat(
+  "
+  \\vspace{-0.3cm}
+  \\begingroup
+  \\footnotesize
+  \\begin{itemize}
+    \\item[--] (2023-2, Magíster en Finanzas) El impacto de la descapitalización de los fondos de pensiones en el costo de la deuda corporativa: El caso de Chile.
+    \\item[--] (2023-2, Magíster en Finanzas) Existencia del efecto tamaño en las acciones chilenas.
+    \\item[--] (2023-2, Magíster en Personas y Organizaciones) Liderazgo Laissez-Faire y consumo de psicotrópicos en trabajadores de área de salud en Chile, considerando dimensiones de género.
+    \\item[--] (2022-2, Magíster en Negocios Digitales) \\href{https://repositoriobiblioteca.udp.cl/TD002496.pdf#pagemode=thumbs}{Análisis de trayectorias de futbolistas extranjeros : relación de las trayectorias con el desempeño de los equipos de la Serie A}.
+  \\end{itemize}
+  \\endgroup
+  "
+)
+```
+
+# Educación
+
+```{r, education, results='asis'}
+
+MG_IA = list(
+ "Details" = c(
+ "Magíster en Inteligencia Artificial",
+ "Diciembre 2022",
+ "Universidad Adolfo Ibáñez",
+ "Santiago, Chile"
+ ),
+ "Bullets" = NA #"Tesis: Diseño de un modelo de detección de portonazos, mediante YOLOv5 y heurísticas de clasificación." 
+)
+
+MG_ES = list(
+ "Details" = c(
+ "Magíster en Estadística",
+ "Diciembre 2019",
+ "Pontificia Universidad Católica de Chile",
+ "Santiago, Chile"
+ ),
+ "Bullets" = NA #"Proyecto: Análisis de variables que influyen en SPX Index, una mirada desde los Modelos Lineales Generalizados."
+)
+
+LC_ED = list(
+ "Details" = c(
+ "Licenciatura en Educación/Pedagogía en Matemática",
+ "Julio 2017",
+ "Universidad Católica Silva Henríquez",
+ "Santiago, Chile"
+ ),
+ "Bullets" = NA #"Tesis: Análisis de las actitudes de estudiantes de pedagogía en matemática e informática educativa hacia la Estadística, en una universidad privada selectiva."
+)
+
+make_detailed_section(MG_IA, order = 1:4)
+cat("\\vspace{-0.5cm}")
+make_detailed_section(MG_ES, order = 1:4)
+cat("\\vspace{-0.5cm}")
+make_detailed_section(LC_ED, order = 1:4)
+```
+
+<!-- # Reconocimientos -->
+
+```{r, awards, echo=FALSE, eval=FALSE}
+tribble(
+  ~ Pkg, ~ When, ~ Role, ~ Details,
+  "Compromiso Docente", "2023", "Universidad Diego Portales.", "Doble reconocimiento de nominación a la categoría de compromiso docente de la carrerra de Ingeniería Comercial e Ingeniería en Control de Gestión, Facultad de Administración y Economía",
+  "Compromiso Docente", "2022", "Universidad Diego Portales.", "Reconocimiento de nominación a la categoría de compromiso docente de la carrerra de Auditoría, Facultad de Administración y Economía"
+) |>
+  brief_entries(glue::glue("\\textbf{<Pkg>}: <Role> \\newline <Details>.", 
+                           .open = "<", 
+                           .close = ">"), 
+                When, 
+                .protect = FALSE)
+```
