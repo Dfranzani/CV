@@ -2,7 +2,7 @@
 surname: Daniel Franzani Cerda
 address: "" # Subhead under name 
 phone: +56 9 6244 8359
-#www: dfranzani.github.io/website
+# position: ""
 email: "dfranzani@gmail.com"
 github: dfranzani
 linkedin: dfranzani
@@ -30,7 +30,7 @@ UDP <- vector("list")
 UDP$Details <- c("Universidad Diego Portales", "Agosto 2022 - Presente", "Coordinador de línea Estadística", "")
 UDP$Bullets <- c(
   "La coordinación de línea busca monitorear y evaluar la docencia en los cursos de estadística de la Facultad de administración economía.",
-  "Automatizar y estandarizar el material docente de los cursos de estadística.",
+  "Canalizar y estandarizar el material docente de los cursos de estadística.",
   "Desarrollar y mantener la infraestructura de evaluación de los cursos de estadística.",
   "Asesorar a los docentes en la implementación de nuevas metodologías de enseñanza."
 )
@@ -42,21 +42,21 @@ UTEM$Bullets <- c(
  "Desarrollar modelos predictivos y descriptivos para la identificación de factores de riesgo académico.",
  "Comunicar y presentar resultados a los distintos estamentos de la universidad.",
  "Automatización de procesos y tareas para la consolidación de bases de datos, la generación de reportes y paneles de visualización.",
- "Diseño e implementación de flujos de tranajo para la gestión de la información."
+ "Diseño e implementación de flujos de trabajo para la gestión de la información."
 )
 
 tecpar <- vector("list")
 tecpar$Details <- c("TecPar", "Agosto 2019 - Presente", "Científico de Datos","")
 tecpar$Bullets <- c(
- "Desarrolo de modelos supervisados y no supervisados para el análisis de datos y la generación de reportes automatizados para distintos proyectos de investigación.",
- "Monitoreo y ajuste de modelos de Machine Learning y Deep Learning para la predicción y detección de patrones de distintos fenómenos (agrícola, consumo de recursos, patrones geográficos, indicadores macroeconómicos)."
+ "Desarrollar modelos supervisados y no supervisados para el análisis de datos y la generación de reportes automatizados para distintos proyectos de investigación.",
+ "Monitorear y ajustar de modelos de Machine Learning y Deep Learning para la predicción y detección de patrones de distintos fenómenos y áreas (agrícola, consumo de recursos, patrones geográficos, indicadores macroeconómicos)."
 )
 
 sgs <- vector("list")
 sgs$Details <- c("SGS", "Octubre 2021 - Diciembre 2022", "Profesional Estadístico", "")
 sgs$Bullets <- c(
   "Responsable experto para el proyecto de Economía Circular - LATAM Airlines en cuestiones técnicas.",
-  "Consolidación de bases de datos asociadas, elaboración de indicadores operacionales, elaboración de paneles de visualización."
+  "Consolidación de bases de datos, elaboración de indicadores operacionales, elaboración de paneles de visualización."
 )
 
 # santander <- vector("list")
@@ -90,7 +90,7 @@ make_detailed_section(
 habilidades <- vector("list")
 habilidades$Details <- c("", "", "", "")
 habilidades$Bullets <- c(
-  "\\textbf{Habilidades}: Pensamiento crítico, comunicación efectiva, enseñanza-aprendizaje, visualización de datos, gestión de bases de datos, estadística/probabilidad.",
+  "\\textbf{Habilidades}: Pensamiento crítico, comunicación efectiva, enseñanza-aprendizaje, visualización de datos, gestión de bases de datos, estadística/probabilidad, minería de datos, redes neuronales.",
   "\\textbf{Herramientas}: R, Python, SQL, Git, Markdown, LaTeX, Power BI/Tableau.",
   "\\textbf{Intereses}: Ajedrez, tenis de mesa, lectura (crónicas), perfumería."
 )
@@ -111,7 +111,7 @@ MG_IA = list(
  "Universidad Adolfo Ibáñez",
  "Santiago, Chile"
  ),
- "Bullets" = "Octavo lugar de promoción (de 48). Proyecto de título en \\href{https://drive.google.com/file/d/1BKxviVojPZrCPJyTfVj79-U02q6vFHQM/view}{diseño de modelo para la detección de portonazos}."
+ "Bullets" = "Octavo lugar de promoción (de 48). Proyecto de título en \\href{https://drive.google.com/file/d/1BKxviVojPZrCPJyTfVj79-U02q6vFHQM/view}{diseño de arquitectura de aprendizaje profundo para la detección de portonazos}."
 )
 
 MG_ES = list(
@@ -121,7 +121,7 @@ MG_ES = list(
  "Pontificia Universidad Católica de Chile",
  "Santiago, Chile"
  ),
- "Bullets" = "Cuarto lugar de promoción (de 16). Proyecto de título en análisis de variables que influyen en SPX Index utilizando GLM."
+ "Bullets" = "Cuarto lugar de promoción (de 16). Proyecto de título en análisis de variables que influyen en SPX Index utilizando MLG."
 )
 
 LC_ED = list(
@@ -140,5 +140,4 @@ make_detailed_section(MG_ES, order = 1:4)
 cat("\\vspace{-0.5cm}")
 make_detailed_section(LC_ED, order = 1:4)
 ```
-
 
